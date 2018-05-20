@@ -1,7 +1,14 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+{% extends "base.html" %}
+
+{% block title %}My amazing blog{% endblock %}
+
+{% block content %}
 
 <div class="container">
-
+<br>
+<h3>Únete a nuestro programa de lealtad - es gratis y fácil.
+Utiliza tu Starbucks Card para crear una cuenta Starbucks Rewards.</h3>
+<br>
 <form class="was-validated" action="/createuser/" method="post" autocomplete="off">
 	{% csrf_token %}
 
@@ -84,16 +91,16 @@
 
 
   	<div class="form-check form-check-inline">
+		{{ form.accept_terms }}
 		<label class="form-check-label" for="{{ form.accept_terms.id_for_label }}">{{form.accept_terms.label_tag}}</label>
-  		{{ form.accept_terms }}
   		<div>{{ form.accept_terms.errors }}</div>
   		
   	</div>
 
 
-  	<div class="form-check form-check-inline">
+  	<div class="form-group form-check">
+		{{ form.receive_news}}
 		<label class="form-check-label" for="{{ form.receive_news.id_for_label }}">{{form.receive_news.label_tag}}</label>
-  		{{ form.receive_news}}
   		<div>{{ form.receive_news.errors }}</div>  		
   	</div>
 
@@ -102,10 +109,12 @@
 
 
 
-<button type="submit" class="btn btn-primary">Save</button>
+<button type="submit" class="btn btn-dark">Crear una cuenta</button>
 
 
 
 </form>
 
 </div>
+
+{% endblock %}

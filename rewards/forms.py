@@ -49,10 +49,8 @@ class UserCreateForm(UserCreationForm):
 
 
 	def save(self, commit=True):
-		print('guardo')
 		user = super(UserCreateForm, self).save()
 		if user:
-			print('user ...>', user)
 			instance = Person(
 				user=user,
 				birthdate = self.cleaned_data['birthdate'],
