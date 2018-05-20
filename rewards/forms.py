@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Person, Question
 from django.contrib.auth.models import User
 
+
+
 class UserCreateForm(UserCreationForm):
 	birthdate = forms.DateField()
 	question = forms.ModelChoiceField(queryset=Question.objects.all(), to_field_name="name")
