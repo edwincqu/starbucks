@@ -17,17 +17,18 @@ from django.contrib import admin
 try:
     from django.urls import include, path
 except Exception as e:
-    from django.conf.urls import url
+    from django.conf.urls import url, include
     pass
 
 
-# try:
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('rewards.urls')),
-]
-# except Exception as e:
-#     urlpatterns = [
-#     url(r'^admin/', admin.site.urls),
-#     ]
-#     pass
+try:
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('', include('rewards.urls')),
+    ]
+except Exception as e:
+    urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'', include('rewards.urls')),
+     ]
+    pass
