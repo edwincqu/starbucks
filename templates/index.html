@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
 
-<h1>Únete a nuestro programa de lealtad - es gratis y fácil.
-Utiliza tu Starbucks Card para crear una cuenta Starbucks Rewards.</h1>
-</body>
-</html>
+{% block content %}
+
+
+<div class="content">
+	<img src="{% static "REWARDSMOBILE_tcm92-36776.png" %}">
+</div>
+
+{% endblock %}

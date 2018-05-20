@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
+	path('', views.IndexView.as_view(), name="index"),
 	path('createuser/', views.UserCreationView.as_view(), name="create-user"),
 ]
