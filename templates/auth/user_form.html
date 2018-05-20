@@ -6,7 +6,7 @@
 	{% csrf_token %}
 
 	<div class="form-group input-group-sm">
-		<label for="{{ form.username.id_for_label }}">{{form.username.label_tag}}</label>
+		<label for="{{ form.username.id_for_label }}">{{form.username.label}}</label>
   		{{form.username}}
   		<div>{{ form.username.errors }}</div>
   	</div>
@@ -29,10 +29,7 @@
   	<div class="form-group input-group-sm">
 		<label for="{{ form.last_name.id_for_label }}">{{form.last_name.label}}</label>
   		{{ form.last_name }}
-  		<div>{{ form.last_name.errors }}</div>
-  		<small id="last_name" class="form-text text-muted">
-  		 	{{ form.last_name.help_text }}
-  		</small>
+  		<div>{{ form.last_name.errors }}</div>  		
   	</div>
 
 
@@ -58,11 +55,9 @@
   	</div>
 
   	<div class="form-group">
-		<label for="{{ form.question.id_for_label }}">{{form.question.label_tag}}</label>
-  		
+		<label for="{{ form.question.id_for_label }}">{{form.question.label_tag}}</label>  		
   		{{ form.question }}
-
-
+  		<div>{{ form.question.errors }}</div>
   	</div>
 
 
@@ -70,27 +65,21 @@
 
   	<div class="form-group">
 		<label for="{{ form.answer.id_for_label }}">{{form.answer.label_tag}}</label>
-  		<input type="text" class="form-control" id="{{ form.answer.id_for_label }}"required aria-describedby="answer" name="answer" >
-  		<div>{{ form.answer.errors }}</div>
-  		<small id="answer" class="form-text text-muted">
-  		 	{{ form.answer.help_text }}
-  		</small>
+  		{{ form.answer }}
+  		<div>{{ form.answer.errors }}</div>  		
   	</div>
 
 
   	<div class="form-group">
 		<label for="{{ form.card_number.id_for_label }}">{{form.card_number.label_tag}}</label>
-  		<input type="text" class="form-control" id="{{ form.card_number.id_for_label }}"required aria-describedby="card_number" name="card_number" >
-  		<div>{{ form.card_number.errors }}</div>
-  		<small id="card_number" class="form-text text-muted">
-  		 	{{ form.card_number.help_text }}
-  		</small>
+  		{{ form.card_number }}
+  		<div>{{ form.card_number.errors }}</div>  		
   	</div>
 
   	<div class="form-group">
 		<label for="{{ form.pin_code.id_for_label }}">{{form.pin_code.label_tag}}</label>
   		{{ form.pin_code }}
-  		
+  		<div>{{ form.pin_code.errors }}</div>
   	</div>
 
 

@@ -13,9 +13,25 @@ class UserCreateForm(UserCreationForm):
 	receive_news = forms.BooleanField()
 
 
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		self.fields['username'].widget.attrs.update({'class': 'form-control'})
+		self.fields['first_name'].widget.attrs.update({'class': 'form-control', 'required': True})
+		self.fields['last_name'].widget.attrs.update({'class': 'form-control', 'required': True})
+		self.fields['email'].widget.attrs.update({'class': 'form-control', 'required': True})
+		self.fields['password1'].widget.attrs.update({'class': 'form-control'})
+		self.fields['password2'].widget.attrs.update({'class': 'form-control'})
+		self.fields['birthdate'].widget.attrs.update({'class': 'form-control', 'required': True})
+		self.fields['question'].widget.attrs.update({'class': 'custom-select custom-select-sm', 'required': True})
+		self.fields['answer'].widget.attrs.update({'class': 'form-control', 'required': True})
+		self.fields['card_number'].widget.attrs.update({'class': 'form-control', 'required': True})
+		self.fields['pin_code'].widget.attrs.update({'class': 'form-control', 'required': True})
+		self.fields['accept_terms'].widget.attrs.update({'class': 'form-check-input', 'required': True})
+		self.fields['receive_news'].widget.attrs.update({'class': 'form-check-input', 'required': True})
+
 
 	class Meta:
-		model = User
+		model = User		
 		fields = (
 			"username",
 			"first_name",
@@ -30,21 +46,7 @@ class UserCreateForm(UserCreationForm):
 			"pin_code",
 			"accept_terms",
 			"receive_news")
-		widgets = {
-			"username":forms.TextInput(attrs={'class':'form-control'}),
-			"first_name":forms.TextInput(attrs={'class':'form-control'}),
-			"last_name":forms.TextInput(attrs={'class':'form-control'}),
-			"email":forms.TextInput(attrs={'class':'form-control'}),
-			"password1":forms.PasswordInput(attrs={'class':'form-control'}),
-			"password2":forms.PasswordInput(attrs={'class':'form-control'}),
-			"question":forms.TextInput(attrs={'class':'custom-select custom-select-sm'}),
-			"answer":forms.TextInput(attrs={'class':'form-control'}),
-			"card_number":forms.TextInput(attrs={'class':'form-control'}),
-			"pin_code":forms.TextInput(attrs={'class':'form-control'}),
-			"accept_terms":forms.TextInput(attrs={'class':'form-check-input"'}),
-			"receive_news":forms.TextInput(attrs={'class':'form-check-input"'})
 
-		}  
 
 	def save(self, commit=True):
 		print('guardo')
