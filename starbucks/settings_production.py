@@ -55,7 +55,7 @@ ROOT_URLCONF = 'starbucks.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [u'/home/samuelroncal/starbucks/templates'],
+        'DIRS': [u'/home/samuelroncal/starbucks/templates'],      
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
